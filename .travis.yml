@@ -34,7 +34,6 @@ before_install:
   - mkdir -p /home/travis/.android
   - echo 'count=0' > /home/travis/.android/repositories.cfg
 
-  - sudo apt remove java
   - sudo apt install java8
 
   - wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
