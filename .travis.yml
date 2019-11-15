@@ -34,6 +34,10 @@ before_install:
   - mkdir -p /home/travis/.android
   - echo 'count=0' > /home/travis/.android/repositories.cfg
 
+  - brew cask uninstall java
+  - brew tap caskroom/versions
+  - brew cask install java8
+
   - wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
   - mkdir android-sdk-tools
   - unzip -qq sdk-tools-linux-4333796.zip -d android-sdk-tools
