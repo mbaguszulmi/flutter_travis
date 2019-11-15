@@ -39,6 +39,9 @@ before_install:
   - export GRADLE_HOME=`pwd`/gradle-4.10.3
   - export PATH=$GRADLE_HOME/bin:$PATH
 
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
+
   - sdkmanager --list
 
   - git clone https://github.com/flutter/flutter.git
