@@ -1,16 +1,25 @@
-language: dart
-
-dart:
-  - stable
-
 os:
   - linux
 
-env:
-  global:
-    - ANDROID_SDK_ROOT=/opt/android
+language: android
 
-sudo: required
+licenses:
+        - 'android-sdk-preview-license-.+'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
+      android:
+        components:
+          - tools
+          - platform-tools
+          - build-tools-25.0.3
+          - android-25
+          - sys-img-armeabi-v7a-google_apis-25
+          - extra-android-m2repository
+          - extra-google-m2repository
+          - extra-google-android-support
+      jdk: oraclejdk8
+
+sudo: false
 
 addons:
   apt:
@@ -18,9 +27,8 @@ addons:
     sources:
       - ubuntu-toolchain-r-test # if we don't specify this, the libstdc++6 we get is the wrong version
     packages:
-      - lib32stdc++6 # https://github.com/flutter/flutter/issues/6207
       - libstdc++6
-      - curl
+      - fonts-droid
 
 before_install:
   - echo "Folder atas before install $(pwd)"
@@ -30,20 +38,6 @@ before_install:
   - unzip -qq gradle-4.10.3-bin.zip
   - export GRADLE_HOME=`pwd`/gradle-4.10.3
   - export PATH=$GRADLE_HOME/bin:$PATH
-
-  - mkdir -p /home/travis/.android
-  - echo 'count=0' > /home/travis/.android/repositories.cfg
-
-  - sudo apt install java8
-
-  - wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-  - mkdir android-sdk-tools
-  - unzip -qq sdk-tools-linux-4333796.zip -d android-sdk-tools
-  - export PATH=`pwd`/android-sdk-tools/tools/bin:$PATH
-  - mkdir -p $ANDROID_SDK_ROOT
-
-  - yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT "tools" "build-tools;28.0.3" "extras;android;m2repository" > /dev/null
-  - export PATH=${ANDROID_SDK_ROOT}/tools/bin:$PATH
 
   - sdkmanager --list
 
@@ -74,3 +68,7 @@ deploy:
   skip-cleanup: true
   on:
     tags: true
+
+cache:
+  directories:
+    - $HOME/.pub-cache
