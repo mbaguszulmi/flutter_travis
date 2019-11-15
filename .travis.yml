@@ -12,11 +12,13 @@ before_install:
   - flutter doctor
 install:
   - echo "Folder install saat ini $(pwd)"
+  - cd $TRAVIS_BUILD_DIR
   - flutter pub get
   - flutter test
 before_script:
   - echo "Travis build folder $TRAVIS_BUILD_DIR"
 script:
+  - flutter build apk --split-per-abi
   - echo "Script yang akan dijalankan. Coba ls ya..."
   - ls
 deploy:
