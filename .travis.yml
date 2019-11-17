@@ -72,10 +72,7 @@ deploy:
   edge: true
   on:
     tags: true
-    branches:
-      only:
-      - master
-      - stable
+    branch: master
 
 cache:
   directories:
