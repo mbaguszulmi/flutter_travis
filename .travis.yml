@@ -72,8 +72,11 @@ deploy:
   skip-cleanup: true
   on:
     tags: true
+    branches:
+      only:
+      - master
+      - stable
 
 cache:
   directories:
     - $HOME/.pub-cache
-    
