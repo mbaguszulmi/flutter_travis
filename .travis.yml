@@ -52,13 +52,10 @@ install:
   - cd $TRAVIS_BUILD_DIR
   - flutter doctor
   - flutter pub get
-  - flutter test
-
-before_script:
-  - echo "Skipping before script"
 
 script:
-  - echo  "Skipping script"
+  - echo  "Start test"
+  - flutter test
   - echo "TRAVIS_TAG = $TRAVIS_TAG"
   - echo "TRAVIS_BUILD_NUMBER = $TRAVIS_BUILD_NUMBER"
 
@@ -79,4 +76,3 @@ deploy:
 cache:
   directories:
     - $HOME/.pub-cache
-
