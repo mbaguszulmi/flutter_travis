@@ -58,6 +58,7 @@ script:
   - flutter test
   - echo "TRAVIS_TAG = $TRAVIS_TAG"
   - echo "TRAVIS_BUILD_NUMBER = $TRAVIS_BUILD_NUMBER"
+  - echo "Travis Branch = $TRAVIS_BRANCH"
 
 before_deploy:
   - flutter build apk --build-name $TRAVIS_TAG --build-number $TRAVIS_BUILD_NUMBER --split-per-abi
