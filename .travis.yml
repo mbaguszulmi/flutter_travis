@@ -49,19 +49,20 @@ before_install:
 
 install:
   - echo "Folder install saat ini $(pwd)"
-  - flutter doctor
   - cd $TRAVIS_BUILD_DIR
+  - flutter doctor
   - flutter pub get
   - flutter test
 
 before_script:
-  - echo "Travis build folder $TRAVIS_BUILD_DIR"
+  - echo "Skipping before script"
 
 script:
+  - echo  "Skipping script"
+
+before_deploy:
   - flutter build apk --split-per-abi
-  - echo "Script yang akan dijalankan. Coba ls ya..."
-  - ls
-  
+
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
