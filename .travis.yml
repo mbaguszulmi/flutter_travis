@@ -31,7 +31,7 @@ addons:
       - fonts-droid
 
 before_install:
-  - echo "Folder atas before install $(pwd)"
+  - echo "Install gradle and flutter bin"
   - cd ..
 
   - wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip
