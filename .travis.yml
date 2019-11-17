@@ -48,7 +48,7 @@ before_install:
   - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
 
 install:
-  - echo "Folder install saat ini $(pwd)"
+  - echo "Start install dependencies"
   - cd $TRAVIS_BUILD_DIR
   - flutter doctor
   - flutter pub get
@@ -72,6 +72,7 @@ deploy:
   edge: true
   on:
     tags: true
+    condition: $TRAVIS_BRANCH = master
 
 cache:
   directories:
