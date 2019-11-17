@@ -71,8 +71,8 @@ deploy:
   skip-cleanup: true
   edge: true
   on:
-    branch: master
     tags: true
+    condition: $TRAVIS_BRANCH = master
 
 cache:
   directories:
