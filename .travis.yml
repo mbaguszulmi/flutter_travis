@@ -71,8 +71,8 @@ deploy:
   skip-cleanup: true
   edge: true
   on:
-    tags: true
     branch: master
+    tags: true
 
 cache:
   directories:
