@@ -49,16 +49,16 @@ before_install:
 
 install:
   - echo "Folder install saat ini $(pwd)"
-  - flutter doctor
   - cd $TRAVIS_BUILD_DIR
+  - flutter doctor
   - flutter pub get
   - flutter test
 
 before_script:
-  - echo "Skip before script"
+  - echo "Skipping before script"
 
 script:
-  - echo "Skip script"
+  - echo  "Skipping script"
 
 before_deploy:
   - flutter build apk --split-per-abi
@@ -80,3 +80,4 @@ deploy:
 cache:
   directories:
     - $HOME/.pub-cache
+    
