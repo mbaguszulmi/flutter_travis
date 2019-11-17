@@ -64,6 +64,7 @@ script:
   - echo "TRAVIS_BUILD_NUMBER = $TRAVIS_BUILD_NUMBER"
   - echo "Travis Branch = $TRAVIS_BRANCH"
   - echo "CURRENT_BRANCH = $CURRENT_BRANCH"
+  - git ls-remote origin | sed -n "\|b96abe45b658e4fb80e3a049fd3430fb7b10bf1d\s\+refs/heads/|{s///p}"
 
 before_deploy:
   - flutter build apk --build-name $TRAVIS_TAG --build-number $TRAVIS_BUILD_NUMBER --split-per-abi
