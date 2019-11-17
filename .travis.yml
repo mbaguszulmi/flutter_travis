@@ -72,12 +72,8 @@ deploy:
   edge: true
   on:
     tags: true
-    branches:
-      only:
-      - master
-      - stable
+    condition: $TRAVIS_BRANCH = master
 
 cache:
   directories:
     - $HOME/.pub-cache
-    
