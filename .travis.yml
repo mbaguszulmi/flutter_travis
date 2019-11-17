@@ -1,6 +1,10 @@
 os:
   - linux
 
+env:
+  global:
+    - CURRENT_BRANCH=$(git ls-remote origin | sed -n "\|b96abe45b658e4fb80e3a049fd3430fb7b10bf1d\s\+refs/heads/|{s///p}")
+
 language: android
 
 licenses:
@@ -73,7 +77,7 @@ deploy:
   edge: true
   on:
     tags: true
-    condition: $TRAVIS_BRANCH = master
+    condition: $CURRENT_BRANCH = master
 
 cache:
   directories:
